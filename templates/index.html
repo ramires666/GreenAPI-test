@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Green-API test {% endblock %}</h1>
+
+
+    <div class="buttons-column">
+
+        <form action="/handle_action" method="post">
+            <label for="idInstance">Instance ID:</label>
+            <input type="text" name="idInstance" value="{{ idInstance }}">
+
+            <label for="apiTokenInstance">API Token:</label>
+            <input type="text" name="apiTokenInstance" value="{{ apiTokenInstance }}">
+
+            <br><br><br>
+{#            <input type="submit" name="action" value="PostMessage">#}
+            <input type="submit" name="action" value="GetSettings">
+            <input type="submit" name="action" value="GetStateInstance">
+
+            <br><br><br>
+
+            <label for="phoneNumber">phoneNumber:</label>
+            <input type="int" name="phoneNumber" value="{{ phoneNumber }}">
+
+            <label for="message">message:</label>
+            <input type="text" name="message" value="{{ message }}">
+            <input type="submit" name="action" value="SendMessage">
+
+            <br><br><br>
+
+            <label for="phoneNumber2">phoneNumber:</label>
+            <input type="int" name="phoneNumber2" value="{{ phoneNumber2 }}">
+            <label for="urlFile">file URL:</label>
+            <input type="text" name="urlFile" value="{{ urlFile }}">
+            <input type="submit" name="action" value="SendFileByUrl">
+
+        </form>
+    </div>
+
+
+    <div class="results-column">
+        <div class="results-column">
+        <label>Ответ:</label>
+            <div class="results-window">
+                {% if result %}
+                    <p>{{ result }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+
+    <div style="clear:both;"></div>
+{% endblock %}

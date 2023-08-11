@@ -1,0 +1,50 @@
+h1 {
+    border: 2px #eee solid;
+    color: #3cb371;
+    text-align: center;
+    padding: 5px;
+}
+
+label {
+    white-space: nowrap; /* prevents the label from wrapping */
+    /*overflow: hidden; !* hides any overflowing content (if any) *!*/
+    text-overflow: ellipsis; /* adds '...' for any overflowing content */
+}
+
+
+.container {
+    margin-top: 5px;  /* This will ensure there's some space between your navbar and your content */
+}
+
+.buttons-column {
+    margin-top: 10px;
+    float: left; /* This will let the two columns sit side by side */
+    width: 5%;  /* Slight reduction to account for potential padding/margin */
+    padding: 1%; /* A little bit of padding so they're not right up against each other */
+    /*word-wrap: break-word;*/
+
+}
+
+.results-column {
+    float: right; /* This will let the two columns sit side by side */
+    width: 85%;  /* Slight reduction to account for potential padding/margin */
+    padding: 1%; /* A little bit of padding so they're not right up against each other */
+    word-wrap: break-word;
+
+}
+
+.buttons-column input[type="submit"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.results-window {
+    border: 1px solid #d1d1d1;       /* A border to define the window */
+    padding: 5px;                  /* Some spacing inside the window */
+    margin-top: 10px;               /* Space from the top */
+    background-color: #f9f9f9;      /* A light background color */
+    max-height: 1200px;              /* Define a maximum height */
+    overflow-y: auto;               /* Add vertical scrollbar if content overflows */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* A subtle shadow for depth */
+    width: 90%; !important;
+}
