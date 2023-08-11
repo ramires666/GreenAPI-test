@@ -11,7 +11,7 @@ phoneNumber = 77058217951
 phoneNumber2 = 79642920400
 
 urlFile = "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187.jpg"
-urlFile = "https://media.tenor.com/e1foxy6gXgsAAAAC/kazakhstan-nyan-cat.gif"
+# urlFile = "https://media.tenor.com/e1foxy6gXgsAAAAC/kazakhstan-nyan-cat.gif"
 
 app = Flask(__name__)
 app.secret_key = '83576937509357'
