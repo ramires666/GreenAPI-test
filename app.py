@@ -73,10 +73,17 @@ def handle_action():
         token = request.form.get('apiTokenInstance', default=apiTokenInstance)
         phoneNumber = request.form.get('phoneNumber', default=phoneNumber)
         phoneNumber2 = str(request.form.get('phoneNumber2', default=phoneNumber))
-        message = request.form.get('message', default=message)
+        # message = request.form.get('message', default=message)
         urlFile = request.form.get('urlFile', default=urlFile)
         url = fr"https://api.green-api.com/waInstance{instance_id}/sendFileByUrl/{token}"
-        payload = {"chatId": f"{phoneNumber2}"+'@c.us',"urlFile": f"{urlFile}","fileName": "cat.gif","caption": "vibing cat"}
+        fileName = urlFile.split("/")[-1:][0]
+        caption = fileName.split(".")[:1][0]
+        chatId = str(phoneNumber2) + '@c.us'
+        payload = {"chatId": f"{chatId}",
+                   "urlFile": f"{urlFile}",
+                   "fileName": f"{fileName}",
+                   "caption": f"{caption}"
+                   }
         headers = {'Content-Type': 'application/json'}
         response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
         return render_template('index.html', result=response.text, idInstance=instance_id, apiTokenInstance=token,message=message,phoneNumber=phoneNumber,phoneNumber2=phoneNumber2,urlFile=urlFile)
