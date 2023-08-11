@@ -60,6 +60,7 @@ def handle_action():
         instance_id = request.form.get('idInstance', default=idInstance)
         token = request.form.get('apiTokenInstance', default=apiTokenInstance)
         phoneNumber = request.form.get('phoneNumber', default=phoneNumber)
+        phoneNumber2 = str(request.form.get('phoneNumber2', default=phoneNumber))
         message = request.form.get('message', default=message)
         url = fr"https://api.green-api.com/waInstance{instance_id}/sendMessage/{token}"
         payload = f'{{\r\n\t\"chatId\": \"{phoneNumber}@c.us\",\r\n\t\"message\": \"{message}"\r\n}}'
@@ -78,7 +79,7 @@ def handle_action():
         payload = {"chatId": f"{phoneNumber2}"+'@c.us',"urlFile": f"{urlFile}","fileName": "cat.gif","caption": "vibing cat"}
         headers = {'Content-Type': 'application/json'}
         response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
-        return render_template('index.html', result=response.text, idInstance=instance_id, apiTokenInstance=token,message=message,phoneNumber2=phoneNumber2,urlFile=urlFile)
+        return render_template('index.html', result=response.text, idInstance=instance_id, apiTokenInstance=token,message=message,phoneNumber=phoneNumber,phoneNumber2=phoneNumber2,urlFile=urlFile)
 
 
     return "Unknown action"
